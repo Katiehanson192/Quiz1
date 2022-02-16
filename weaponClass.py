@@ -1,4 +1,3 @@
-import random
 
 '''
 Create a Weapon Class definition according to the following specs:
@@ -23,8 +22,39 @@ the attribute 'status' to 'Inactive'
 
 '''
 
+import random
 
+class WeaponClass:
+    def __init__(self, weaponName, bullNum, Fast, distance, stat):
+        self.__name = weaponName
+        self.__bullets = bullNum
+        self.__speed = Fast
+        self.__range = distance
+        self.__status = 'Active'
 
+    def get_Weapon_name(self):
+        return self.__name
+
+    def set_bull_number(self, bullNum):
+        self.__bullets = random.randint(10,100000)
+
+    def get_Number_bullet(self):
+        return self.__bullets
+
+    def get_fast(self):
+        return self.__speed
+    
+    def get_distance(self):
+        return self.__range
+
+    def get_Weapon_stat(self):
+        return self.__status
+    
+    def fire_bullet(self, bullNum):
+        if self.__bullets > 0:
+            self.__bullets -1
+        else:
+            self.__status = 'Inactive'
 
 
 

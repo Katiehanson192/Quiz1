@@ -15,27 +15,31 @@ HINT: Follow the comments for each line to help with the logic of the problem.
 
 
 # create a file object to open the file in read mode
+Wn = open('weapons.csv', 'r')
+
 
 
 
 # create a csv object from the file object
-
+weapons_file = csv.reader(Wn, delimiter = ',')
 
 
 #skip the header row
-
+next(weapons_file)
 
 
 
 #create an empty dictionary named 'weapons_dict'
-
+weapons_dict = {}
 
 
 
 #use a for loop to iterate through every row of the csv file
-
+for line in weapons_file:
     #use variables for name,speed and range (optional)
-    
+    name = line[0]
+    speed = line[1]
+    range = line[2]
 
     # create an instance of the weapon object using the 
     # specs from the csv file (name,speed and range) 
