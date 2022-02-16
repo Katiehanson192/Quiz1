@@ -25,9 +25,9 @@ the attribute 'status' to 'Inactive'
 import random
 
 class WeaponClass:
-    def __init__(self, weaponName, bullNum, Fast, distance, stat):
+    def __init__(self, weaponName, Fast, distance):
         self.__name = weaponName
-        self.__bullets = bullNum
+        self.__bullets = 0
         self.__speed = Fast
         self.__range = distance
         self.__status = 'Active'
@@ -35,8 +35,15 @@ class WeaponClass:
     def get_Weapon_name(self):
         return self.__name
 
-    def set_bull_number(self, bullNum):
-        self.__bullets = random.randint(10,100000)
+    def set_bull_number(self):
+        self.__bullets = random.randint(10,15)
+
+    def fire_bullet(self):
+        if self.__bullets > 0:
+            self.__bullets -=1
+        else:
+            self.__status = 'Inactive'
+            #print(self.__status)
 
     def get_Number_bullet(self):
         return self.__bullets
@@ -50,11 +57,7 @@ class WeaponClass:
     def get_Weapon_stat(self):
         return self.__status
     
-    def fire_bullet(self, bullNum):
-        if self.__bullets > 0:
-            self.__bullets -1
-        else:
-            self.__status = 'Inactive'
+
 
 
 

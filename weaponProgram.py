@@ -1,3 +1,6 @@
+from turtle import distance
+
+from numpy import number
 import weaponClass as w
 import csv
 
@@ -39,41 +42,46 @@ for line in weapons_file:
     #use variables for name,speed and range (optional)
     name = line[0]
     speed = line[1]
-    range = line[2]
+    dist = line[2]
 
     # create an instance of the weapon object using the 
     # specs from the csv file (name,speed and range) 
     
 
     # append the name and bullet count to 'weapons_dict'
+    data = w.WeaponClass(name, speed,distance)
+    data.set_bull_number()
+    weapons_dict[name] = speed, dist, data.get_Number_bullet()
     
-
-
     # print out the name of the weapon using the appropriate method of the object 
-    
+    print('Weapon name: ',name)
     # print out the speed of the weapon using the appropriate method of the object
-    
+    print('Weapon speed: ',speed)
     # print out the range of the weapon using the appropriate method of the object
-    
+    print('Weapon range: ',dist)
     # print out the number of bullets of the weapon using the appropriate method of the object
-    
+    print('Number of bullets: ', data.get_Number_bullet())
 
     #use an input statement to halt the program and wait for the user - 
     input("Press any key to fire the weapon")
     
 
     # use an appropriate loop to keep firing the weapon until all bullets run out
-    
+    for number in range(data.get_Number_bullet()):
         # call the appropriate method to fire a bullet
-       
+        data.fire_bullet()
         # print out the bullet count every time the weapon is fired
-        
-
+        print(data.get_Number_bullet())
     
 
 
 #using a loop print out the name and number of bullets from the dictionary
+for key in weapons_dict:
+    #print(weapons_dict)
+    print(key)
+    print(data.get_Number_bullet())
 
+#print(weapons_dict)
 
 
 
