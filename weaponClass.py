@@ -36,7 +36,7 @@ class WeaponClass:
         return self.__name
 
     def set_bull_number(self):
-        self.__bullets = random.randint(10,15)
+        self.__bullets = random.randint(10,100000)
 
     def fire_bullet(self):
         if self.__bullets > 0:
