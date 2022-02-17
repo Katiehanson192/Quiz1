@@ -71,7 +71,7 @@ for line in weapons_file:
         # call the appropriate method to fire a bullet
         data.fire_bullet()
         # print out the bullet count every time the weapon is fired
-        print(data.get_Number_bullet())
+        print(data.get_Number_bullet(), end='\r')
     
 
 
